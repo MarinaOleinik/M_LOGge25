@@ -11,7 +11,16 @@ namespace M_LOGge25
 
         protected override Window CreateWindow(IActivationState? activationState)
         {
-            return new Window(new AppShell());
+            //Loome esimese lehe (StartPage) ja määrame selle rakenduse aknaks
+            var startPage = new StartPage();
+            // Loome NavigationPage, et võimaldada navigeerimist lehtede vahel
+            var navigationPage = new NavigationPage(startPage)
+            {
+                BarBackgroundColor = Colors.LightBlue,
+                BarTextColor = Colors.White
+            };
+
+            return new Window(navigationPage);
         }
     }
 }
